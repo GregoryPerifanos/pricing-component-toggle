@@ -1,0 +1,190 @@
+/* === CSS RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: hsl(240, 78%, 98%);
+  color: hsl(232, 13%, 33%);
+  text-align: center;
+  padding: 2rem;
+}
+
+.pricing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === TOGGLE SWITCH === */
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: hsl(233, 13%, 49%);
+}
+
+.toggle-label {
+  color: hsl(233, 13%, 49%);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-label.active {
+  color: hsl(237, 63%, 64%);
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  border-radius: 34px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  top: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* === CARDS === */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+  width: 300px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.card .price {
+  font-size: 2.5rem;
+  color: hsl(232, 13%, 33%);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.price .currency {
+  font-size: 1.2rem;
+  align-self: flex-start;
+}
+
+.card ul {
+  list-style: none;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.card ul li {
+  padding: 0.5rem 0;
+  border-top: 1px solid hsl(234, 14%, 74%);
+}
+
+.card ul li:last-child {
+  border-bottom: 1px solid hsl(234, 14%, 74%);
+}
+
+.card button {
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  opacity: 0.9;
+}
+
+/* === HIGHLIGHT PROFESSIONAL CARD === */
+.card.professional {
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color: white;
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.card.professional .price {
+  color: white;
+}
+
+.card.professional button {
+  background: white;
+  color: hsl(237, 63%, 64%);
+}
+
+/* === DEFAULT DISPLAY === */
+.price.annually {
+  display: block;
+}
+
+.price.monthly {
+  display: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
